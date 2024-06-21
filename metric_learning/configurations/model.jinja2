@@ -1,0 +1,8 @@
+{
+    'name': '{{ name }}',
+    {% if name == 'simple_dense' %}
+    'k': {{ k | default(8) }},
+    {% endif %}
+    'dimension': {{ dimension | default(128) }},
+    'l2_normalize': {{ l2_normalize | default(False) }}
+}

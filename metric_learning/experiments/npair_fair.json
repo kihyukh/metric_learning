@@ -1,0 +1,17 @@
+{
+  "image": [{}],
+  "dataset": [
+    {"name": "stanford_online_product", "min_images_per_class": 4}
+  ],
+  "batch_design": [
+    {"name": "grouped", "group_size": 2, "npair": 32, "batch_size": 64}
+  ],
+  "model": [{"name": "resnet50", "dimension": 128}],
+  "loss": [
+    {"name": "npair", "lambda": 0.01}
+  ],
+  "metrics": [{"recall": true, "auc": true, "nmi": true, "vrf": true}],
+  "trainer": [
+    {"learning_rate": 0.0003, "lr_decay_steps": 100, "lr_decay_rate": 0.9, "num_epochs": 20, "evaluate_once": true, "early_stopping": false}
+  ]
+}

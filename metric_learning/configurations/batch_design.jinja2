@@ -1,0 +1,23 @@
+{
+    'name': '{{ name | default('grouped') }}',
+{% if name == 'grouped' %}
+    'group_size': {{ group_size | default(2) }},
+{% if npair %}
+    'npair': {{ npair }},
+{% endif %}
+{% if negative_class_mining %}
+    'negative_class_mining': {{ negative_class_mining }},
+{% endif %}
+{% elif name == 'pair' %}
+    'positive_ratio': {{ positive_ratio | default(0.5) }},
+{% endif %}
+    'batch_size': {{ batch_size | default(32) }},
+    'num_batches': {{ num_batches | default(100) }},
+    'combine_batches': {{ combine_batches | default(1) }},
+{% if q_bias %}
+    'q_bias': {{ q_bias }},
+{% endif %}
+{% if uniform %}
+    'uniform': {{ uniform }},
+{% endif %}
+}

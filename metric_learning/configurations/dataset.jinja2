@@ -1,0 +1,19 @@
+{
+    'name': '{{ name }}',
+    'cross_validation_split': {{ cross_validation_split | default(-1) }},
+{% if distort %}
+    'distort': {
+        'base': {{ distort_base }},
+        'value': {{ distort_value }},
+    },
+{% endif %}
+{% if multiple %}
+    'multiple': {{ multiple }},
+{% endif %}
+{% if min_images_per_class %}
+    'min_images_per_class': {{ min_images_per_class }},
+{% endif %}
+{% if num_labels %}
+    'num_labels': {{ num_labels }},
+{% endif %}
+}

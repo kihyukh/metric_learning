@@ -1,0 +1,27 @@
+{
+  "image": [{}],
+  "dataset": [
+    {"name": "cub200", "distort": 0.1},
+    {"name": "cub200", "distort": 0.2},
+    {"name": "cub200", "distort": 0.3},
+    {"name": "cub200", "distort": 0.4},
+    {"name": "cub200", "distort": 0.5},
+    {"name": "cub200", "distort": 0.6},
+    {"name": "cub200", "distort": 0.7},
+    {"name": "cub200", "distort": 0.8},
+    {"name": "cub200", "distort": 0.9},
+    {"name": "cub200", "distort": 1.0}
+  ],
+  "batch_design": [
+    {"name": "grouped", "group_size": 4, "batch_size": 64}
+  ],
+  "model": [{"name": "resnet50", "dimension": 128}],
+  "loss": [
+    {"name": "contrastive", "alpha": 4.0},
+    {"name": "contrastive", "alpha": 4.0, "importance_sampling": true}
+  ],
+  "metrics": [{"recall": true, "auc": true, "nmi": true, "vrf": true}],
+  "trainer": [
+    {"learning_rate": 0.00003, "lr_decay_steps": 100, "lr_decay_rate": 0.9, "num_epochs": 20}
+  ]
+}

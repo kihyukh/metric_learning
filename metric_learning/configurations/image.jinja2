@@ -1,0 +1,10 @@
+{
+    "width": {{ width | default(256) }},
+    "height": {{ height | default(256) }},
+    "channel": {{ channel | default(3) }},
+    "random_crop": {
+        "width": {{ crop_width | default(224) }},
+        "height": {{ crop_height | default(224) }}
+    },
+    "random_flip": {{ random_flip | default(True) }}
+}

@@ -1,0 +1,6 @@
+#tensorflow-gpu
+scipy==1.1.0
+tqdm==4.15.0
+Jinja2==2.10
+mtcnn==0.0.8
+opencv-contrib-python==4.0.0.21

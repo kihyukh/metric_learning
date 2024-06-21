@@ -1,0 +1,13 @@
+{
+    'learning_rate': {{ learning_rate | default(0.0001) }},
+    'num_epochs': {{ num_epochs | default(100) }},
+{% if lr_embedding %}
+    'lr_embedding': {{ lr_embedding }},
+{% endif %}
+{% if lr_decay_steps %}
+    'lr_decay_steps': {{ lr_decay_steps }},
+    'lr_decay_rate': {{ lr_decay_rate | default(0.5) }},
+{% endif %}
+    'early_stopping': {{ early_stopping | default(True) }},
+    'evaluate_once': {{ evaluate_once | default(False) }},
+}

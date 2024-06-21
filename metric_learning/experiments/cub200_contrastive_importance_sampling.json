@@ -1,0 +1,25 @@
+{
+  "image": [{}],
+  "dataset": [
+    {"name": "cub200"}
+  ],
+  "batch_design": [
+    {"name": "grouped", "group_size": 2, "batch_size": 64},
+    {"name": "grouped", "group_size": 4, "batch_size": 64},
+    {"name": "grouped", "group_size": 8, "batch_size": 64},
+    {"name": "grouped", "group_size": 16, "batch_size": 64},
+    {"name": "grouped", "group_size": 32, "batch_size": 64},
+    {"name": "pair", "positive_ratio": 0.5, "batch_size": 64, "combine_batches": 63},
+    {"name": "pair", "positive_ratio": 0.1, "batch_size": 64, "combine_batches": 63},
+    {"name": "pair", "positive_ratio": 0.9, "batch_size": 64, "combine_batches": 63}
+  ],
+  "model": [{"name": "resnet50", "dimension": 128}],
+  "loss": [
+    {"name": "contrastive", "alpha": 4.0},
+    {"name": "contrastive", "alpha": 4.0, "importance_sampling": true}
+  ],
+  "metrics": [{"recall": true, "auc": true, "nmi": true, "vrf": true}],
+  "trainer": [
+    {"learning_rate": 0.00003, "lr_decay_steps": 100, "lr_decay_rate": 0.9, "num_epochs": 20}
+  ]
+}

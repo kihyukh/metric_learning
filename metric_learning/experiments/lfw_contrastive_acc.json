@@ -1,0 +1,21 @@
+{
+  "image": [{}],
+  "dataset": [
+    {"name": "lfw_mtcnn"}
+  ],
+  "batch_design": [
+    {"name": "grouped", "group_size": 4, "batch_size": 64, "num_bathes": 100}
+  ],
+  "model": [{"name": "resnet50", "dimension": 128}],
+  "loss": [
+   {"name": "l1_contrastive", "alpha": 8.0, "new_importance_sampling": true, "l": 32},
+   {"name": "l1_contrastive", "alpha": 8.0, "new_importance_sampling": true, "l": 64},
+   {"name": "l1_contrastive", "alpha": 8.0, "new_importance_sampling": true, "l": 128},
+   {"name": "l1_contrastive", "alpha": 8.0, "new_importance_sampling": true, "l": 256},
+   {"name": "l1_contrastive", "alpha": 8.0, "new_importance_sampling": true, "l": 512}
+  ],
+  "metrics": [{"recall": true, "recall_k": [1, 2], "lfw_acc": true}],
+  "trainer": [
+    {"learning_rate": 0.0001, "lr_decay_steps": 1000, "lr_decay_rate": 0.9, "num_epochs": 500, "early_stopping": false}
+  ]
+}

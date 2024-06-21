@@ -1,0 +1,23 @@
+{
+  "image": [{}],
+  "dataset": [
+    {"name": "cub200"},
+    {"name": "cars196"},
+    {"name": "stanford_online_product"}
+  ],
+  "batch_design": [
+    {"name": "grouped", "group_size": 2, "npair": 32, "batch_size": 64}
+  ],
+  "model": [{"name": "resnet50", "dimension": 128}],
+  "loss": [
+    {"name": "npair", "lambda": 0.01},
+    {"name": "npair", "lambda": 0.001},
+    {"name": "npair", "lambda": 0.0001}
+  ],
+  "metrics": [{"recall": true, "auc": true, "nmi": true, "vrf": true}],
+  "trainer": [
+    {"learning_rate": 0.00003, "lr_decay_steps": 100, "lr_decay_rate": 0.9, "num_epochs": 20},
+    {"learning_rate": 0.0001, "lr_decay_steps": 100, "lr_decay_rate": 0.9, "num_epochs": 20},
+    {"learning_rate": 0.0003, "lr_decay_steps": 100, "lr_decay_rate": 0.9, "num_epochs": 20}
+  ]
+}

@@ -1,0 +1,71 @@
+{% if name == 'contrastive' %}
+{
+    'name': '{{ name }}',
+    'alpha': {{ alpha | default(16.0) }},
+    'distance_function': 'euclidean_distance',
+    'importance_sampling': {{ importance_sampling | default(False) }},
+{% if new_importance_sampling %}
+    'new_importance_sampling': {{ new_importance_sampling | default(False) }},
+    'l': {{ l | default(100) }}
+{%  endif %}
+{% if balanced_pairs %}
+    'balanced_pairs': {{ balanced_pairs | default(False) }},
+    'l': {{ l | default(100) }}
+{%  endif %}
+}
+{% elif name == 'l1_contrastive' %}
+{
+    'name': '{{ name }}',
+    'alpha': {{ alpha | default(2.0) }},
+    'distance_function': 'euclidean_distance',
+    'importance_sampling': {{ importance_sampling | default(False) }},
+{% if new_importance_sampling %}
+    'new_importance_sampling': {{ new_importance_sampling | default(False) }},
+    'l': {{ l | default(100) }}
+{%  endif %}
+{% if balanced_pairs %}
+    'balanced_pairs': {{ balanced_pairs | default(False) }},
+    'l': {{ l | default(100) }}
+{%  endif %}
+}
+{% elif name == 'triplet' %}
+{
+    'name': '{{ name }}',
+    'alpha': {{ alpha | default(4.0) }},
+    'distance_function': 'euclidean_distance',
+}
+{% elif name == 'margin' %}
+{
+    'name': '{{ name }}',
+    'alpha': {{ alpha | default(0.2) }},
+    'beta': {{ beta | default(1.2) }},
+    'nu': {{ nu | default(0.0) }},
+    'distance_function': 'euclidean_distance',
+}
+{% elif name == 'logistic' %}
+{
+    'name': '{{ name }}',
+    'distance_function': 'euclidean_distance',
+    'alpha': {{ alpha | default(16.0) }},
+    'importance_sampling': {{ importance_sampling | default(False) }},
+}
+{% elif name == 'npair' %}
+{
+    'name': '{{ name }}',
+    'distance_function': 'cosine_similarity',
+    'lambda': {{ lambda | default(0.01) }},
+    'importance_sampling': {{ importance_sampling | default(False) }},
+}
+{% elif name == 'lifted' %}
+{
+    'name': '{{ name }}',
+    'distance_function': 'euclidean_distance',
+    'alpha': {{ alpha | default(1.0) }},
+}
+{% elif name == 'cluster' %}
+{
+    'name': '{{ name }}',
+    'distance_function': 'euclidean_distance',
+    'gamma': {{ gamma | default(1.0) }},
+}
+{% endif %}

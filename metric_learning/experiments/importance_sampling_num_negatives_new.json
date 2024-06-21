@@ -1,0 +1,27 @@
+{
+  "image": [{}],
+  "dataset": [
+    {"name": "cub200"}
+  ],
+  "batch_design": [
+    {"name": "grouped", "group_size": 4, "batch_size": 64}
+  ],
+  "model": [{"name": "resnet50", "dimension": 128}],
+  "loss": [
+    {"name": "contrastive", "alpha": 4.0, "new_importance_sampling": true, "l": 1},
+    {"name": "contrastive", "alpha": 4.0, "new_importance_sampling": true, "l": 2},
+    {"name": "contrastive", "alpha": 4.0, "new_importance_sampling": true, "l": 4},
+    {"name": "contrastive", "alpha": 4.0, "new_importance_sampling": true, "l": 8},
+    {"name": "contrastive", "alpha": 4.0, "new_importance_sampling": true, "l": 16},
+    {"name": "contrastive", "alpha": 4.0, "new_importance_sampling": true, "l": 32},
+    {"name": "contrastive", "alpha": 4.0, "new_importance_sampling": true, "l": 64},
+    {"name": "contrastive", "alpha": 4.0, "new_importance_sampling": true, "l": 128},
+    {"name": "contrastive", "alpha": 4.0, "new_importance_sampling": true, "l": 256},
+    {"name": "contrastive", "alpha": 4.0, "new_importance_sampling": true, "l": 512}
+  ],
+  "metrics": [{"recall": true, "auc": true, "nmi": true, "vrf": true}],
+  "trainer": [
+    {"learning_rate": 0.00003, "lr_decay_steps": 100, "lr_decay_rate": 0.9, "num_epochs": 20},
+    {"learning_rate": 0.0001, "lr_decay_steps": 100, "lr_decay_rate": 0.9, "num_epochs": 20}
+  ]
+}
